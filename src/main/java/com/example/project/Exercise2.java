@@ -37,6 +37,8 @@ public class Exercise2 {
                 groupings.pop();
             } else if(current != '(' && current != ')') {
                 contents.push('*');
+                if(str.substring(i + 1, str.length()).indexOf(')') == -1 && str.substring(i + 1, str.length()).indexOf(')') == -1)
+                    break;
                 i = (str.charAt(i + 1) != '(' && str.charAt(i + 2) != '(')? i + str.substring(i + 1, str.length()).indexOf(')') : i;
             } else {
                 return true;
