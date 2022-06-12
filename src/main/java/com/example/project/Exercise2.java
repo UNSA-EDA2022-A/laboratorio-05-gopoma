@@ -13,6 +13,30 @@ public class Exercise2 {
     }
 
     public boolean existenDuplicados(String str) {
+        MyStack<Character> stack = new LinkedListStack<>();
+
+        // Colocar codigo aqui
+        for(char current: str.toCharArray()) {
+            if(current != ')') {
+                stack.push(current);
+            } else {
+                int contentCounter = 0;
+                while(stack.top() != '(') {
+                    stack.pop();
+                    contentCounter++;
+                }
+                stack.pop();
+
+                if(contentCounter == 0) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+    /*
+    public boolean existenDuplicados(String str) {
         MyStack<Character> groupings = new LinkedListStack<>();
         MyStack<Character> contents = new LinkedListStack<>();
         
@@ -54,4 +78,5 @@ public class Exercise2 {
 
         return contents.size() < groupings.size();
     }
+    */
 }
